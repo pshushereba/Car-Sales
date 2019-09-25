@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {featuresReducer} from '../reducers/featuresReducer.js';
 
 const Header = props => {
   // console.log("In Header Props", props)
