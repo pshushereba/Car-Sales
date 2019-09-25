@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import AddedFeature from './AddedFeature';
 import {connect} from 'react-redux';
+import {removeFeature} from '../actions';
 
 const AddedFeatures = props => {
-  console.log("In AddedFeatures", props)
+
   return (
     <div className="content">
       <h6>Added features:</h6>
@@ -27,4 +28,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {})(AddedFeatures);
+export default connect(mapStateToProps, {removeFeature: removeFeature})(AddedFeatures);

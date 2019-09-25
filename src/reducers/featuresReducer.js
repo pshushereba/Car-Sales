@@ -22,7 +22,26 @@ export const featuresReducer = (state = initialState, action) => {
             return {
                 ...state,
                 additionalPrice: state.additionalPrice + action.payload.price,
-                features: [...state.car.features, action.payload.name]
+                car: {
+                    ...state.car,
+                    features: [...state.car.features, action.payload]
+                }
+            }
+        }
+
+        case "REMOVE_FEATURE": {
+            console.log("REMOVE_FEATURE Connected", state);
+            return {
+                ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car: {
+                    ...state.car,
+                    features: state.car.features.filter((item) => {
+                        if (item.id !== action.payload.id) {
+                            return item;
+                        }
+                    })
+                }
             }
         }
         default: return state;
